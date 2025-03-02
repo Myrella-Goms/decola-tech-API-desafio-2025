@@ -89,7 +89,6 @@ classDiagram
  <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/Captura%20de%20tela%202025-03-02%20204805.png">
  <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/Captura%20de%20tela%202025-03-02%20204821.png">
  <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/Captura%20de%20tela%202025-03-02%20205206.png">
- <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/Captura%20de%20tela%202025-03-02%20175018.png">
  <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/Captura%20de%20tela%202025-03-02%20180252.png">
 
  ## Documentação da API (Swagger)
