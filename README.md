@@ -10,7 +10,7 @@ O desafio do projeto consiste em construir uma API RESTful funcional utilizando 
 </p>
 
 ## Entidades criadas para o projeto:
-
+```mermaid
 classDiagram
     class User {
         +String name
@@ -63,3 +63,4 @@ classDiagram
     User "1" --> "1" Address
     Account "1" --> "*" Transaction
     Card "1" --> "*" Purchase
+```
