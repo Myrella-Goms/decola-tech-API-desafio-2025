@@ -84,3 +84,5 @@ classDiagram
 4. Tratamento de Exceções:
 
  Implementação de um manipulador global de exceções (GlobalExceptionHandler) para lidar com exceções comuns, como NoSuchElementException e IllegalArgumentException, e retornar mensagens apropriadas ao cliente.
+
+5. Fotos da aplicação
