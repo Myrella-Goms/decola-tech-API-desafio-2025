@@ -6,9 +6,7 @@ public class AddressDTO {
     private String zipcode;
     private String street;
     private String city;
-
     private String state;
-
 
     public Long getId() {
         return id;
