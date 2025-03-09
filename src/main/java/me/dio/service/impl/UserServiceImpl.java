@@ -100,6 +100,8 @@ public class UserServiceImpl implements UserService {
         cardDTO.setNumber(card.getNumber());
         cardDTO.setLimit(card.getLimit());
         cardDTO.setCurrentBill(card.getCurrentBill());
+        cardDTO.setDueDate(card.getDueDate());
+        cardDTO.setBestPurchaseDay(card.getBestPurchaseDay());
         cardDTO.setPurchases(card.getPurchases().stream().map(this::toDTO).collect(Collectors.toList()));
         return cardDTO;
     }
@@ -110,6 +112,8 @@ public class UserServiceImpl implements UserService {
         card.setNumber(cardDTO.getNumber());
         card.setLimit(cardDTO.getLimit());
         card.setCurrentBill(cardDTO.getCurrentBill());
+        card.setDueDate(cardDTO.getDueDate());
+        card.setBestPurchaseDay(cardDTO.getBestPurchaseDay());
         card.setPurchases(cardDTO.getPurchases().stream().map(this::toEntity).collect(Collectors.toList()));
         return card;
     }

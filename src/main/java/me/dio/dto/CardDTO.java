@@ -1,7 +1,9 @@
 package me.dio.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class CardDTO {
@@ -9,6 +11,8 @@ public class CardDTO {
     private String number;
     private BigDecimal limit;
     private BigDecimal currentBill;
+    private LocalDate dueDate;
+    private Date bestPurchaseDay;
     private List<PurchasesDTO> purchases;
 
     public Long getId() {
@@ -41,6 +45,22 @@ public class CardDTO {
 
     public void setCurrentBill(BigDecimal currentBill) {
         this.currentBill = currentBill;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public Date getBestPurchaseDay() {
+        return bestPurchaseDay;
+    }
+
+    public void setBestPurchaseDay(Date bestPurchaseDay) {
+        this.bestPurchaseDay = bestPurchaseDay;
     }
 
     public List<PurchasesDTO> getPurchases() {
