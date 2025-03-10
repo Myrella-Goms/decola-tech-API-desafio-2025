@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+
     @Override
     public UserDTO findById(Long id) {
         return toDTO(userRepository.findById(id).orElseThrow(NoSuchElementException::new));

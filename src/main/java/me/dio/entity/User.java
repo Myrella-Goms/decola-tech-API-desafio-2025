@@ -3,6 +3,8 @@ package me.dio.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+// ao invés de precisarmos criar a tabela manualemnte com sql, o jpa
+
 @Entity (name = "tab_user")
 public class User {
 
