@@ -12,7 +12,6 @@ O seguinte projeto teve como objetivo desenvolver uma API RESTful com contexto b
 ## Entidades criadas para o projeto:
 ```mermaid
 classDiagram
-classDiagram
     class Agencia {
         +String unidade
         +String numero
