@@ -9,7 +9,7 @@ A seguinte aplicação visa gerenciar agências bancárias pelo Brasil, trazendo
   </a>
 </p>
 
-## Entidades criadas para o projeto:
+## Entidades trabalhadas no projeto:
 ```mermaid
 classDiagram
     class Agencia {
