@@ -1,5 +1,5 @@
-## API REST com Java, Spring Boot 3, Maven, PostgreSQL e Railway ☕
-O seguinte projeto teve como objetivo desenvolver uma API RESTful responsável pelo geerenciamento de agências bancárias, utilizando boas práticas de programação, utilizando Spring Boot, Spring Data JPA para conexão com banco de dados e Spring .
+## Gerenciamento de Agências Bancárias ☕
+A seguinte aplicação visa gerenciar agências bancárias pelo Brasil, trazendo informaçôes de funcionários e clientes. Podemos acompanhar o Status de cada agência, criar e deletar novas agências, bem como ver a quantidade de funcionarios e clientes por agencia.
 
 ## Tecnologias Utilizadas:
 
@@ -73,5 +73,5 @@ classDiagram
  <img src="">
  <img src="">
 
- ## Documentação da API (Swagger)
+ ## Deploy da API pelo Railway
 https://decola-tech-api-desafio-2025-production.up.railway.app/swagger-ui/index.html#/
