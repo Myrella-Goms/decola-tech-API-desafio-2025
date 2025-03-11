@@ -12,57 +12,38 @@ O seguinte projeto teve como objetivo desenvolver uma API RESTful com contexto b
 ## Entidades criadas para o projeto:
 ```mermaid
 classDiagram
-    class User {
-        +String name
+classDiagram
+    class Agencia {
+        +String unidade
+        +String numero
+        +String CEP
+        +String cidade
+        +String estado
+        +String status
+        +List<Clientes> clientes
+        +List<Funcionarios> funcionarios
+    }
+
+    class Cliet {
+        +String nome
         +String cpf
-        +String phone
-        +String birthdate
+        +String telefone
+        +Data aniversario
         +String email
-        +String password
-        +Account account
-        +Card card
-        +Address address
+        +String senha
     }
 
-    class Account {
-        +String number
-        +String agency
-        +BigDecimal balance
-        +BigDecimal limit
-        +List<Transaction> transactions
+    class Funcionarios {
+        +String nome
+        +String cpf
+        +String telefone
+        +Data aniversario
+        +String cargo
+        +String salario
     }
 
-    class Card {
-        +String number
-        +BigDecimal limit
-        +BigDecimal currentBill
-        +List<Purchase> purchases
-    }
-
-    class Transaction {
-        +String date
-        +String description
-        +BigDecimal amount
-    }
-
-    class Purchase {
-        +String date
-        +String description
-        +BigDecimal amount
-    }
-
-    class Address {
-        +String zipcode
-        +String street
-        +String city
-        +String state
-    }
-
-    User "1" --> "1" Account
-    User "1" --> "1" Card
-    User "1" --> "1" Address
-    Account "1" --> "*" Transaction
-    Card "1" --> "*" Purchase
+    Agencia "1" --> "*" Clientes
+    Agencia "1" --> "*" Funcionarios
 ```
 ## Desenvolvimento da API:
 
