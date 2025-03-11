@@ -23,7 +23,7 @@ classDiagram
         +List<Funcionarios> funcionarios
     }
 
-    class Cliet {
+    class Cliente {
         +String nome
         +String cpf
         +String telefone
@@ -41,7 +41,7 @@ classDiagram
         +String salario
     }
 
-    Agencia "1" --> "*" Clientes
+    Agencia "1" --> "*" Cliente
     Agencia "1" --> "*" Funcionarios
 ```
 ## Desenvolvimento da API:
