@@ -9,7 +9,7 @@ A seguinte aplicação visa gerenciar agências bancárias pelo Brasil, trazendo
   </a>
 </p>
 
-## Entidades criadas para o projeto:
+## Entidades trabalhadas no projeto:
 ```mermaid
 classDiagram
     class Agencia {
@@ -67,11 +67,10 @@ classDiagram
  Implementação de um manipulador global de exceções (GlobalExceptionHandler) para lidar com exceções comuns, como NoSuchElementException e IllegalArgumentException, e retornar mensagens apropriadas ao cliente.
 
 ## Imagens da aplicação:
- <img src="">
- <img src="">
- <img src="">
- <img src="">
- <img src="">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20171223.png">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20170731.png">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20170745.png">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20170801.png">
 
  ## Deploy da API pelo Railway
 https://decola-tech-api-desafio-2025-production.up.railway.app/swagger-ui/index.html#/
