@@ -21,20 +21,20 @@ public class AgenciaController {
         this.agenciaService = agenciaService;
     }
 
-    @GetMapping("/{id}")
-    @Operation(summary = "Encontrar agencia ID")
-    public ResponseEntity<AgenciaDTO> findById(@PathVariable Long id) {
-        var cliente = agenciaService.findById(id);
-        return ResponseEntity.ok(cliente);
+    @GetMapping("/{numero}")
+    @Operation(summary = "Encontrar agencia numero")
+    public ResponseEntity<AgenciaDTO> findByNumero(@PathVariable String numero) {
+        var agencia = agenciaService.findByNumero(numero);
+        return ResponseEntity.ok(agencia);
     }
 
     @PostMapping()
     @Operation(summary = "Criar agencia")
-    public ResponseEntity<AgenciaDTO> create(@RequestBody AgenciaDTO agenciaToCreate) {
-        AgenciaDTO createdAgencia = agenciaService.create(agenciaToCreate);
+    public ResponseEntity<AgenciaDTO> create(@RequestBody AgenciaDTO agenciaDTO) {
+        AgenciaDTO createdAgencia = agenciaService.create(agenciaDTO);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(agenciaToCreate.getId())
+                .buildAndExpand(agenciaDTO.getId())
                 .toUri();
         return ResponseEntity.created(location).body(createdAgencia);
     }

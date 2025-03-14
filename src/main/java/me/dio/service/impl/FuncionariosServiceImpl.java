@@ -1,9 +1,14 @@
 package me.dio.service.impl;
 
+import me.dio.domain.model.Agencia;
+import me.dio.domain.model.Cliente;
 import me.dio.domain.model.Funcionarios;
+import me.dio.domain.repository.AgenciaRepository;
 import me.dio.domain.repository.FuncionariosRepository;
+import me.dio.dto.ClienteDTO;
 import me.dio.dto.FuncionariosDTO;
 import me.dio.service.FuncionariosService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -17,6 +22,9 @@ public class FuncionariosServiceImpl implements FuncionariosService {
         this.funcionariosRepository = funcionariosRepository;
     }
 
+    @Autowired
+    private AgenciaRepository agenciaRepository;
+
     @Override
     public FuncionariosDTO findById(Long id) {
         return toDTO(funcionariosRepository.findById(id).
@@ -24,14 +32,14 @@ public class FuncionariosServiceImpl implements FuncionariosService {
     }
 
     @Override
-    public FuncionariosDTO create(FuncionariosDTO funcionariosToCreate) {
-        if (funcionariosRepository.existsByCpf(funcionariosToCreate.getCpf())) {
+    public FuncionariosDTO create(FuncionariosDTO funcionariosDTO) {
+        if (funcionariosRepository.existsByCpf(funcionariosDTO.getCpf())) {
             throw new IllegalArgumentException("Esse cpf já existe.");
         }
-        Funcionarios funcionarios = toEntity(funcionariosToCreate);
-        funcionariosRepository.save(funcionarios);
-        return toDTO(funcionarios);
+        Funcionarios createfuncionarios = toEntity(funcionariosDTO);
+        return toDTO(funcionariosRepository.save(createfuncionarios));
     }
+
 
     @Override
     public FuncionariosDTO update(Long id, FuncionariosDTO funcionariosToUpdate) {
@@ -57,7 +65,7 @@ public class FuncionariosServiceImpl implements FuncionariosService {
     @Override
     public void delete(Long id) {
         Funcionarios existingFuncionarios = funcionariosRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Funcionario não encontrado."));
+                .orElseThrow(() -> new NoSuchElementException("Funcionario não encontrado."));
         funcionariosRepository.delete(existingFuncionarios);
     }
 
@@ -75,6 +83,9 @@ public class FuncionariosServiceImpl implements FuncionariosService {
 
     private Funcionarios toEntity(FuncionariosDTO funcionariosDTO) {
         Funcionarios funcionarios = new Funcionarios();
+        Agencia agencia = agenciaRepository.findById(funcionariosDTO.getAgencia_id())
+                .orElseThrow(() -> new NoSuchElementException("Agência não encontrada"));
+        funcionarios.setAgencia(agencia);
         funcionarios.setNome(funcionariosDTO.getNome());
         funcionarios.setCpf(funcionariosDTO.getCpf());
         funcionarios.setTelefone(funcionariosDTO.getTelefone());

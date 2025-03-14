@@ -23,6 +23,9 @@ public class Funcionarios {
     private String cargo;
     @Column(name = "salario_funcionario")
     private String salario;
+    @ManyToOne
+    @JoinColumn(name = "agencia_id", nullable = false)
+    private Agencia agencia;
 
     public Long getId() {
         return id;
@@ -78,5 +81,13 @@ public class Funcionarios {
 
     public void setSalario(String salario) {
         this.salario = salario;
+    }
+
+    public Agencia getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
     }
 }

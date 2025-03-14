@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity(name = "tab_agency")
+@Entity(name = "tab_agencia")
 public class Agencia {
 
     @Id
@@ -24,10 +24,9 @@ public class Agencia {
     @Column(name = "status_agencia")
     private String status;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Cliente> clientes;
-
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Funcionarios> funcionarios;
 
     public Long getId() {

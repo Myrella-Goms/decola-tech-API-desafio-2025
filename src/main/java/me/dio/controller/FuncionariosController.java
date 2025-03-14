@@ -30,11 +30,11 @@ public class FuncionariosController {
 
     @PostMapping()
     @Operation(summary = "Adicionar funcionarios")
-    public ResponseEntity<FuncionariosDTO> create(@RequestBody FuncionariosDTO funcionariosToCreate) {
-        FuncionariosDTO createdFuncionarios = funcionariosService.create(funcionariosToCreate);
+    public ResponseEntity<FuncionariosDTO> create(@RequestBody FuncionariosDTO funcionariosDTO) {
+        FuncionariosDTO createdFuncionarios = funcionariosService.create(funcionariosDTO);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(funcionariosToCreate.getId())
+                .buildAndExpand(funcionariosDTO.getId())
                 .toUri();
         return ResponseEntity.created(location).body(createdFuncionarios);
     }

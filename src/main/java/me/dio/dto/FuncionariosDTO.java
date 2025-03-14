@@ -5,8 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class FuncionariosDTO {
-    @JsonProperty
+
     private Long id;
+    private Long agencia_id;
     private String nome;
     private String cpf;
     private String telefone;
@@ -20,6 +21,14 @@ public class FuncionariosDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getAgencia_id() {
+        return agencia_id;
+    }
+
+    public void setAgencia_id(Long agencia_id) {
+        this.agencia_id = agencia_id;
     }
 
     public String getNome() {
@@ -69,4 +78,5 @@ public class FuncionariosDTO {
     public void setSalario(String salario) {
         this.salario = salario;
     }
+
 }

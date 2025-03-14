@@ -4,9 +4,9 @@ import me.dio.dto.AgenciaDTO;
 
 public interface AgenciaService {
 
-    AgenciaDTO findById(Long id);
+    AgenciaDTO findByNumero(String numero);
 
-    AgenciaDTO create(AgenciaDTO agenciaToCreate);
+    AgenciaDTO create(AgenciaDTO agenciaDTO);
 
     AgenciaDTO update(Long id, AgenciaDTO agenciaToUpdate);
 

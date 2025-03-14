@@ -6,7 +6,7 @@ public interface FuncionariosService {
 
     FuncionariosDTO findById(Long id);
 
-    FuncionariosDTO create(FuncionariosDTO funcionariosToCreate);
+    FuncionariosDTO create(FuncionariosDTO funcionariosDTO);
 
     FuncionariosDTO update(Long id, FuncionariosDTO funcionariosToUpdate);
 

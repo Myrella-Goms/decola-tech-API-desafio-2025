@@ -30,11 +30,11 @@ public class ClienteController {
 
     @PostMapping()
     @Operation(summary = "Adicionar cliente")
-    public ResponseEntity<ClienteDTO> create(@RequestBody ClienteDTO clienteToCreate) {
-        ClienteDTO createdCliente = clienteService.create(clienteToCreate);
+    public ResponseEntity<ClienteDTO> create(@RequestBody ClienteDTO clienteDTO) {
+        ClienteDTO createdCliente = clienteService.create(clienteDTO);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(clienteToCreate.getId())
+                .buildAndExpand(clienteDTO.getId())
                 .toUri();
         return ResponseEntity.created(location).body(createdCliente);
     }

@@ -19,25 +19,27 @@ public class AgenciaServiceImpl implements AgenciaService {
     }
 
     @Override
-    public AgenciaDTO findById(Long id) {
-        return toDTO(agenciaRepository.findById(id).
-                orElseThrow(NoSuchElementException::new));
+    public AgenciaDTO findByNumero(String numero) {
+        Agencia agencia = agenciaRepository.findByNumero(numero)
+                .orElseThrow(() -> new NoSuchElementException
+                        ("Numero não encontrado"));
+        return toDTO(agencia);
     }
 
     @Override
-    public AgenciaDTO create(AgenciaDTO agenciaToCreate) {
-        if (agenciaRepository.existsByNumero(agenciaToCreate.getNumero())) {
-            throw new IllegalArgumentException("Esse numero já existe.");
+    public AgenciaDTO create(AgenciaDTO agenciaDTO) {
+        if (agenciaRepository.findByNumero(agenciaDTO.getNumero()).isPresent()) {
+            throw new IllegalArgumentException("Esse número já existe.");
         }
-        Agencia agencia = toEntity(agenciaToCreate);
-        return toDTO(agenciaRepository.save(agencia));
+        Agencia createagencia = toEntity(agenciaDTO);
+        return toDTO(agenciaRepository.save(createagencia));
     }
 
     @Override
     public AgenciaDTO update(Long id, AgenciaDTO agenciaToUpdate) {
         ;
         Agencia agencia = agenciaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Agencia não encontrado"));
+                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrado"));
         if (agenciaToUpdate.getStatus() != null) {
             agencia.setStatus(agenciaToUpdate.getStatus());
         }
@@ -48,7 +50,7 @@ public class AgenciaServiceImpl implements AgenciaService {
     @Override
     public void delete(Long id) {
         Agencia existingAgencia = agenciaRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Agencia não encontrada."));
+                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada."));
         agenciaRepository.delete(existingAgencia);
     }
 
