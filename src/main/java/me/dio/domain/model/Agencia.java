@@ -23,7 +23,6 @@ public class Agencia {
     private String estado;
     @Column(name = "status_agencia")
     private String status;
-
     @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Cliente> clientes;
     @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

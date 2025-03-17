@@ -7,8 +7,8 @@ import me.dio.service.FuncionariosService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
+import java.util.List;
 
 @Tag(name = "Funcionarios")
 @RestController
@@ -27,6 +27,14 @@ public class FuncionariosController {
         var funcionarios = funcionariosService.findById(id);
         return ResponseEntity.ok(funcionarios);
     }
+    
+    @GetMapping
+    @Operation(summary = "Buscar todos os funcionarios")
+    public ResponseEntity<List<FuncionariosDTO>> findAll() {
+        List<FuncionariosDTO> funcionarios = funcionariosService.findAll();
+        return ResponseEntity.ok(funcionarios);
+    }
+
 
     @PostMapping()
     @Operation(summary = "Adicionar funcionarios")

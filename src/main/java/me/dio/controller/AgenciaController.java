@@ -3,12 +3,14 @@ package me.dio.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import me.dio.dto.AgenciaDTO;
+import me.dio.dto.ClienteDTO;
 import me.dio.service.AgenciaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @Tag(name = "Agencia")
 @RestController
@@ -39,20 +41,27 @@ public class AgenciaController {
         return ResponseEntity.created(location).body(createdAgencia);
     }
 
-    @PutMapping("/{id}")
+    @GetMapping
+    @Operation(summary = "Buscar todos as agencias")
+    public ResponseEntity<List<AgenciaDTO>> findAll() {
+        List<AgenciaDTO> agencia = agenciaService.findAll();
+        return ResponseEntity.ok(agencia);
+    }
+
+    @PutMapping("/{numero}")
     @Operation(summary = "Atualizar os dados de uma agencia") // Swagger
-    public ResponseEntity<AgenciaDTO> update(@PathVariable Long id, @RequestBody AgenciaDTO agenciaToUpdate) {
-        AgenciaDTO agenciatoUpdated = agenciaService.update(id, agenciaToUpdate);
+    public ResponseEntity<AgenciaDTO> updateByNumero(@PathVariable String numero, @RequestBody AgenciaDTO agenciaDTO) {
+        AgenciaDTO agenciatoUpdated = agenciaService.updateByNumero(numero, agenciaDTO);
         if (agenciatoUpdated == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(agenciaToUpdate);
+        return ResponseEntity.ok(agenciatoUpdated);
     }
 
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar agencia pelo ID")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        agenciaService.delete(id);
+    @DeleteMapping("/{numero}")
+    @Operation(summary = "Deletar agencia pelo numero")
+    public ResponseEntity<Void> deleteByNumero(@PathVariable String numero)  {
+        agenciaService.deleteByNumero(numero);
         return ResponseEntity.noContent().build();
     }
 }

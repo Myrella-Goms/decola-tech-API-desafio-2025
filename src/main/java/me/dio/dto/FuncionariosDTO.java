@@ -1,7 +1,5 @@
 package me.dio.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Date;
 
 public class FuncionariosDTO {
@@ -14,6 +12,7 @@ public class FuncionariosDTO {
     private Date aniversario;
     private String cargo;
     private String salario;
+
 
     public Long getId() {
         return id;

@@ -1,6 +1,8 @@
 package me.dio.dto;
 
 
+import me.dio.domain.model.Cliente;
+
 public class ClienteDTO {
 
     private Long id;

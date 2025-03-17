@@ -7,8 +7,8 @@ import me.dio.service.ClienteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
+import java.util.List;
 
 @Tag(name = "Clientes")
 @RestController
@@ -25,6 +25,13 @@ public class ClienteController {
     @Operation(summary = "Encontrar clientes pelo ID")
     public ResponseEntity<ClienteDTO> findById(@PathVariable Long id) {
         var cliente = clienteService.findById(id);
+        return ResponseEntity.ok(cliente);
+    }
+
+    @GetMapping
+    @Operation(summary = "Buscar todos os clientes")
+    public ResponseEntity<List<ClienteDTO>> findAll() {
+        List<ClienteDTO> cliente = clienteService.findAll();
         return ResponseEntity.ok(cliente);
     }
 

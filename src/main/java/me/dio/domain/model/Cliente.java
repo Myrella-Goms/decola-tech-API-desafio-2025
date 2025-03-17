@@ -17,12 +17,8 @@ public class Cliente {
     private String cpf;
     @Column(name = "telefone_cliente")
     private String telefone;
-    @Column(name = "aniversario_cliente")
-    private Date aniversario;
     @Column(name = "email_cliente")
     private String email;
-    @Column(name = "senha_cliente")
-    private String senha;
     @ManyToOne
     @JoinColumn(name = "agencia_id", nullable = false)
     private Agencia agencia;
@@ -59,28 +55,12 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public Date getAniversario() {
-        return aniversario;
-    }
-
-    public void setAniversario(Date aniversario) {
-        this.aniversario = aniversario;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Agencia getAgencia() {
