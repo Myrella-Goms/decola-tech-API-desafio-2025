@@ -1,5 +1,5 @@
 ## Gerenciamento de Agências Bancárias ☕
-A seguinte aplicação visa gerenciar agências bancárias pelo Brasil, trazendo informaçôes de funcionários e clientes. Podemos acompanhar o Status de cada agência, criar e deletar novas agências, bem como ver a quantidade de funcionarios e clientes por agencia.
+A seguinte aplicação visa gerenciar agências de um banco, trazendo informaçôes de funcionários e clientes. Podemos verificar o status de cada agência, bem como a quantidade de funcionarios e clientes por agencia.
 
 ## Tecnologias Utilizadas:
 
@@ -27,9 +27,7 @@ classDiagram
         +String nome
         +String cpf
         +String telefone
-        +Data aniversario
         +String email
-        +String senha
     }
 
     class Funcionarios {
@@ -58,7 +56,7 @@ classDiagram
 2. Operações CRUD:
 
  - Create: Permite criar novas contas, clientes e funcionários com base nas regras de négocio estabelecidas
- - Read: Permite buscar e listar uma agencia, conta e funcionários pelo id.
+ - Read: Permite buscar a agência pelo número da mesma, funcionários e clientes pelo id. Também permite listar todas as agências, clientes e funcionários.
  - Update: Permite atualizar as informações específicas das entidades, como status da agencia, salário e cargo dos funcionários, e algumas informações dos clientes.
  - Delete: Permite deletar um usuário do sistema.
  
@@ -67,10 +65,10 @@ classDiagram
  Implementação de um manipulador global de exceções (GlobalExceptionHandler) para lidar com exceções comuns, como NoSuchElementException e IllegalArgumentException, e retornar mensagens apropriadas ao cliente.
 
 ## Imagens da aplicação:
- <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20171223.png">
- <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20170731.png">
- <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20170745.png">
- <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-11%20170801.png">
+ <img src="">
+ <img src="">
+ <img src="">
+ <img src="">
 
  ## Deploy da API pelo Railway
 https://decola-tech-api-desafio-2025-production.up.railway.app/swagger-ui/index.html#/
