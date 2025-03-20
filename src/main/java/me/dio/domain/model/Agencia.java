@@ -1,7 +1,6 @@
 package me.dio.domain.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity(name = "tab_agencia")
@@ -11,15 +10,15 @@ public class Agencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_agencia")
     private Long id;
-    @Column(name = "numero")
+    @Column(name = "numero", nullable = false)
     private String numero;
-    @Column(name = "unidade_agencia")
+    @Column(name = "unidade_agencia", nullable = false)
     private String unidade;
-    @Column(name = "CEP_agencia")
+    @Column(name = "CEP_agencia", nullable = false)
     private String CEP;
-    @Column(name = "cidade_agencia")
+    @Column(name = "cidade_agencia", nullable = false)
     private String cidade;
-    @Column(name = "estado_agencia")
+    @Column(name = "estado_agencia", nullable = false)
     private String estado;
     @Column(name = "status_agencia")
     private String status;
@@ -74,7 +73,6 @@ public class Agencia {
 
     public void setEstado(String estado) {
         this.estado = estado;
-
     }
 
     public String getStatus() {

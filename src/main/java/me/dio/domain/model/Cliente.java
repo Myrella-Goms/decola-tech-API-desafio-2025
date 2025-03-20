@@ -2,7 +2,6 @@ package me.dio.domain.model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
 
 @Entity (name = "tab_cliente")
 public class Cliente {
