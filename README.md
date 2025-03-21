@@ -52,7 +52,7 @@ classDiagram
    
  - DTO (Data Transfer Object): Encapsula e estrutura as informações que serão enviadas ou recebidas pelos endpoints sem expor as entidades, garantindo uma melhor organização e segurança da API.
 
-   Service:
+Service:
  - Service: Inteface com os métodos que serão implementados pela camada de negócios, que foram: findById/numero (no caso da Agencia), findALL, create, update e delete.
  - ServiceImpl: Responsável pela lógica de negócio da aplicação. Ela atua como intermediária entre as camadas Controller e Repository.
    
