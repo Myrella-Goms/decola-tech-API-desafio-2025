@@ -1,7 +1,7 @@
-## BEM VINDO(A) AO SEU GERENCIAMENTO DE AGÊNCIAS!
+## ✅💳 BEM VINDO(A) AO SEU GERENCIAMENTO DE AGÊNCIAS!
 A seguinte aplicação visa gerenciar agências de um banco, trazendo também informaçôes de funcionários e clientes associados. Podemos verificar o status, numero e endereço de cada agência, bem como a quantidade de funcionarios e clientes por agencia, além de outros atributos inerentes a essas duas classes.
 
-## Tecnologias utilizadas para o desenvolvimento da aplicação :
+## 💻 Tecnologias utilizadas para o desenvolvimento da aplicação :
 
  <p align="center">
   <a href="https://skillicons.dev">
