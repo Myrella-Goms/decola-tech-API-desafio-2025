@@ -1,5 +1,5 @@
-## Gerenciamento de Agências Bancárias ☕
-A seguinte aplicação visa gerenciar agências de um banco, trazendo informaçôes de funcionários e clientes. Podemos verificar o status de cada agência, bem como a quantidade de funcionarios e clientes por agencia.
+## BEM VINDO AO SEU GERENCIAMENTO DE AGÊNCIAS BANCÁRIAS!
+A seguinte aplicação visa gerenciar agências de um banco, trazendo também informaçôes de funcionários e clientes associados. Podemos verificar o status, numero e endereço de cada agência, bem como a quantidade de funcionarios e clientes por agencia, além de outros atributos inerentes a essas duas classes.
 
 ## Tecnologias Utilizadas:
 
