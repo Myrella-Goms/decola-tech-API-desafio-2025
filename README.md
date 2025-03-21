@@ -46,7 +46,7 @@ classDiagram
 
 ## 📄 Camadas:
    
-   Domain:
+Domain:
  - Model: Contém as classes mapeadas em entidades no banco de dados, incluindo Agencia, Clientes e Funcionários.
  - Repository: Responsável pela interação com a camada de persistência de dados, realizando o acesso ao banco de dados e detendo métodos consulta personalizados.
    
