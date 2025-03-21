@@ -54,7 +54,7 @@ Domain:
 
 Service:
  - Service: Inteface com os métodos que serão implementados pela camada de negócios, que foram: findById/numero (no caso da Agencia), findALL, create, update e delete.
- - ServiceImpl: Responsável pela lógica de negócio da aplicação. Ela atua como intermediária entre as camadas Controller e Repository.
+ - ServiceImpl: Responsável pela lógica de negócio da aplicação.
    
  - Controller: Controladores REST que mapeiam os endpoints para as operações CRUD definidas e manipulam as requisições HTTP.
  - Config: Configuração do swagger open ai;
