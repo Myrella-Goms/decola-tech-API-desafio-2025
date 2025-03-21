@@ -9,7 +9,7 @@ A seguinte aplicação visa gerenciar agências de um banco, trazendo também in
   </a>
 </p>
 
-## Entidades trabalhadas no projeto:
+## Modelagem do sistema:
 ```mermaid
 classDiagram
     class Agencia {
