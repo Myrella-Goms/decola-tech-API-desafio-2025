@@ -12,5 +12,4 @@ public interface AgenciaService {
     AgenciaDTO create(AgenciaDTO agenciaDTO);
     AgenciaDTO updateByNumero(String numero, AgenciaDTO agenciaDTO);
     void deleteByNumero(String numero);
-
 }

@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface AgenciaRepository extends JpaRepository<Agencia, Long> {
 
-    Optional<Agencia> findByNumero(String numero);
+    Optional<Agencia> findByNumero(String numero); // metodo de consulta personalizada que busca um número que pode ou não existir
 }

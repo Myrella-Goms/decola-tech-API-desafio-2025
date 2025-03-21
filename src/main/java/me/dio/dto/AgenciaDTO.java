@@ -1,10 +1,8 @@
 package me.dio.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AgenciaDTO {
 
-    @JsonProperty
     private Long id;
     private String unidade;
     private String numero;

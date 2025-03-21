@@ -10,7 +10,7 @@ public class Agencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_agencia")
     private Long id;
-    @Column(name = "numero", nullable = false)
+    @Column(name = "numero-agencia", nullable = false)
     private String numero;
     @Column(name = "unidade_agencia", nullable = false)
     private String unidade;
@@ -20,7 +20,7 @@ public class Agencia {
     private String cidade;
     @Column(name = "estado_agencia", nullable = false)
     private String estado;
-    @Column(name = "status_agencia")
+    @Column(name = "status_agencia", nullable = false)
     private String status;
     @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Cliente> clientes;
@@ -67,13 +67,9 @@ public class Agencia {
         this.cidade = cidade;
     }
 
-    public String getEstado() {
-        return estado;
-    }
+    public String getEstado() {return estado;}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    public void setEstado(String estado) {this.estado = estado;}
 
     public String getStatus() {
         return status;
@@ -82,7 +78,6 @@ public class Agencia {
     public void setStatus(String status) {
         this.status = status;
     }
-
 
     public List<Cliente> getClientes() {
         return clientes;

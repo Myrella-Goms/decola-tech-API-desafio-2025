@@ -5,7 +5,6 @@ import me.dio.domain.repository.AgenciaRepository;
 import me.dio.dto.AgenciaDTO;
 import me.dio.mapper.AgenciaMapper;
 import me.dio.service.AgenciaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -15,23 +14,23 @@ import java.util.NoSuchElementException;
 public class AgenciaServiceImpl implements AgenciaService {
 
     private final AgenciaRepository agenciaRepository;
+    private final AgenciaMapper agenciaMapper;
 
-    public AgenciaServiceImpl(AgenciaRepository agenciaRepository) {
+    public AgenciaServiceImpl(AgenciaRepository agenciaRepository, AgenciaMapper agenciaMapper) {
         this.agenciaRepository = agenciaRepository;
+        this.agenciaMapper = agenciaMapper;
     }
-    @Autowired
-    private AgenciaMapper agenciaMapper;
 
     @Override
-    public AgenciaDTO findByNumero(String numero)  {
-        Agencia agencia = agenciaRepository.findByNumero(numero)
-                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada"));
-        return agenciaMapper.toDTO(agencia);
+    public AgenciaDTO findByNumero(String numero)  { //metodo definido na interface
+        Agencia agencia = agenciaRepository.findByNumero(numero) //procurar no repository usando o metodo
+                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada")); //checar se existe de fato uma agencia com número informado
+        return agenciaMapper.toDTO(agencia); // retorno da entidade pra dto
     }
 
     @Override
     public List<AgenciaDTO> findAll() {
-        return agenciaRepository.findAll().stream()
+        return agenciaRepository.findAll().stream() // converte a lista de objetos em um fluxo que permite fazer operações funcionais sobre os elementos da lista, como mapear, filtrar ou reduzir.
                 .map(agenciaMapper::toDTO)
                 .toList();
     }
@@ -47,13 +46,19 @@ public class AgenciaServiceImpl implements AgenciaService {
 
     @Override
     public AgenciaDTO updateByNumero(String numero, AgenciaDTO agenciaDTO) {
-        Agencia agencia = agenciaRepository.findByNumero(numero)
+        Agencia agencia = agenciaRepository.findByNumero(numero) //O metodo findByNumero é chamado no repositório para buscar uma agência com o número fornecido.
                 .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada"));
         if (agenciaDTO.getStatus() != null) {
             agencia.setStatus(agenciaDTO.getStatus());
         }
-       Agencia agenciacreated = agenciaRepository.save(agencia);
-        return agenciaMapper.toDTO(agenciacreated);
+        if (agenciaDTO.getCEP() != null) {
+            agencia.setCEP(agenciaDTO.getCEP());
+        }
+        if (agenciaDTO.getCidade() != null) {
+            agencia.setCidade(agenciaDTO.getCidade());
+        }
+       Agencia agenciaCreated = agenciaRepository.save(agencia); //salvar a agencia atualizada no banco de dados
+        return agenciaMapper.toDTO(agenciaCreated); //retornar os novos valores como DTO
     }
 
     @Override

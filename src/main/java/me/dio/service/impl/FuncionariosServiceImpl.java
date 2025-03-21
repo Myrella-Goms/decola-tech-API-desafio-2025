@@ -4,11 +4,9 @@ import me.dio.domain.model.Agencia;
 import me.dio.domain.model.Funcionarios;
 import me.dio.domain.repository.AgenciaRepository;
 import me.dio.domain.repository.FuncionariosRepository;
-import me.dio.dto.ClienteDTO;
 import me.dio.dto.FuncionariosDTO;
 import me.dio.mapper.FuncionariosMapper;
 import me.dio.service.FuncionariosService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -17,14 +15,14 @@ import java.util.NoSuchElementException;
 public class FuncionariosServiceImpl implements FuncionariosService {
 
     private final FuncionariosRepository funcionariosRepository;
+    private final AgenciaRepository agenciaRepository;
+    private final FuncionariosMapper funcionariosMapper;
 
-    public FuncionariosServiceImpl(FuncionariosRepository funcionariosRepository) {
+    public FuncionariosServiceImpl(FuncionariosRepository funcionariosRepository, AgenciaRepository agenciaRepository, FuncionariosMapper funcionariosMapper) {
         this.funcionariosRepository = funcionariosRepository;
+        this.agenciaRepository = agenciaRepository;
+        this.funcionariosMapper = funcionariosMapper;
     }
-    @Autowired
-    private AgenciaRepository agenciaRepository;
-    @Autowired
-    private FuncionariosMapper funcionariosMapper;;
 
     @Override
     public FuncionariosDTO findById(Long id) {

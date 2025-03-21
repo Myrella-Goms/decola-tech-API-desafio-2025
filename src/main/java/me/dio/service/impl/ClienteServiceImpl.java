@@ -7,7 +7,6 @@ import me.dio.domain.repository.ClienteRepository;
 import me.dio.dto.ClienteDTO;
 import me.dio.mapper.ClienteMapper;
 import me.dio.service.ClienteService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -17,14 +16,14 @@ import java.util.NoSuchElementException;
 public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository clienteRepository;
-    public ClienteServiceImpl(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
-    }
+    private final AgenciaRepository agenciaRepository;
+    private final ClienteMapper clienteMapper;
 
-    @Autowired
-    private AgenciaRepository agenciaRepository;
-    @Autowired
-    private ClienteMapper clienteMapper;;
+    public ClienteServiceImpl(ClienteRepository clienteRepository, AgenciaRepository agenciaRepository, ClienteMapper clienteMapper) {
+        this.clienteRepository = clienteRepository;
+        this.agenciaRepository = agenciaRepository;
+        this.clienteMapper = clienteMapper;
+    }
 
     @Override
     public ClienteDTO findById(Long id) {
