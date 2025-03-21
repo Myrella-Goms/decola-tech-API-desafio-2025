@@ -1,7 +1,7 @@
 ## BEM VINDO AO SEU GERENCIAMENTO DE AGÊNCIAS BANCÁRIAS!
 A seguinte aplicação visa gerenciar agências de um banco, trazendo também informaçôes de funcionários e clientes associados. Podemos verificar o status, numero e endereço de cada agência, bem como a quantidade de funcionarios e clientes por agencia, além de outros atributos inerentes a essas duas classes.
 
-## Tecnologias Utilizadas:
+## Tecnologias utilizadas para o desenvolvimento do projeto:
 
  <p align="center">
   <a href="https://skillicons.dev">
@@ -47,11 +47,14 @@ classDiagram
 1. Estrutura:
 
  - Model: Contém as entidades do banco de dados, incluindo Agencia, Clientes e Conta.
- - DTO (Data Transfer Object): Encapsula e estrutura as informações que serão enviadas ou recebidas, garantindo uma melhor organização e separação de preocupações.
+ - Repository: Responsável pela interação com a camada de persistência de dados, realizando o acesso ao banco de dados.
+ - DTO (Data Transfer Object): Encapsula e estrutura as informações que serão enviadas ou recebidas pelos endpoints sem expor as entidades, garantindo uma melhor organização e segurança da API.
  - Repository: Responsável pela interação com a camada de persistência de dados, gerenciando a comunicação com o banco de dados.
- - Service: Responsável pela lógica de negócio da aplicação. Ela atua como intermediária entre o Controller e o Repository.
- - Controller: Controladores REST que mapeiam os endpoints para as operações CRUD e manipulam as requisições HTTP.
- - Config: Configuração do swagger open ai
+ - Service: Responsável pela lógica de negócio da aplicação. Ela atua como intermediária entre as camadas Controller e Repository.
+ - Controller: Controladores REST que mapeiam os endpoints para as operações CRUD definidas e manipulam as requisições HTTP.
+ - Config: Configuração do swagger open ai;
+ - Mappper: Mapeamento de entidade pra DTO e DTO pra entidade usando o mapstruct;
+ - Exception:
 
 2. Operações CRUD:
 
