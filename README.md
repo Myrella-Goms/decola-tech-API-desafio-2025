@@ -44,13 +44,18 @@ classDiagram
 ```
 ## Desenvolvimento da API:
 
-1. Estrutura:
-
+1. Camadas:
+   
+   -Domain:
  - Model: Contém as entidades do banco de dados, incluindo Agencia, Clientes e Conta.
- - Repository: Responsável pela interação com a camada de persistência de dados, realizando o acesso ao banco de dados.
+ - Repository: Responsável pela interação com a camada de persistência de dados, realizando o acesso ao banco de dados e detendo métodos personalizados de consulta.
+   
  - DTO (Data Transfer Object): Encapsula e estrutura as informações que serão enviadas ou recebidas pelos endpoints sem expor as entidades, garantindo uma melhor organização e segurança da API.
- - Repository: Responsável pela interação com a camada de persistência de dados, gerenciando a comunicação com o banco de dados.
- - Service: Responsável pela lógica de negócio da aplicação. Ela atua como intermediária entre as camadas Controller e Repository.
+
+   -Service:
+ - Service:Inteface com os métodos que serão implementados pela camada de negócios.
+ - ServiceImpl: Responsável pela lógica de negócio da aplicação. Ela atua como intermediária entre as camadas Controller e Repository.
+   
  - Controller: Controladores REST que mapeiam os endpoints para as operações CRUD definidas e manipulam as requisições HTTP.
  - Config: Configuração do swagger open ai;
  - Mappper: Mapeamento de entidade pra DTO e DTO pra entidade usando o mapstruct;
