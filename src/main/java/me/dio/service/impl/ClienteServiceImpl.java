@@ -5,6 +5,8 @@ import me.dio.domain.repository.AgenciaRepository;
 import me.dio.domain.model.Cliente;
 import me.dio.domain.repository.ClienteRepository;
 import me.dio.dto.ClienteDTO;
+import me.dio.exception.AgenciaNotFoundException;
+import me.dio.exception.ClienteNotFoundException;
 import me.dio.mapper.ClienteMapper;
 import me.dio.service.ClienteService;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public ClienteDTO findById(Long id) {
         Cliente cliente = clienteRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Cliente não encontrado"));
+                .orElseThrow(() -> new ClienteNotFoundException("Cliente não encontrado"));;
         return clienteMapper.toDTO(cliente);
     }
 
@@ -46,7 +48,7 @@ public class ClienteServiceImpl implements ClienteService {
         }
         Cliente cliente = clienteMapper.toEntity(clienteDTO);
         Agencia agencia = agenciaRepository.findById(clienteDTO.getAgencia_id())
-                .orElseThrow(() -> new IllegalArgumentException("Agência não encontrada"));
+                .orElseThrow(() -> new AgenciaNotFoundException("Agencia não encontrada"));
         cliente.setAgencia(agencia);
         Cliente createdcliente = clienteRepository.save(cliente);
         return clienteMapper.toDTO(createdcliente);

@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import java.util.NoSuchElementException;
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -20,6 +20,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AgenciaNotFoundException.class)
     public ResponseEntity<String> handleAgenciaNotFoundException(AgenciaNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ClienteNotFoundException.class)
+    public ResponseEntity<String> handleClienteNotFoundException(ClienteNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FuncionariosNotFoundException.class)
+    public ResponseEntity<String> handleFuncionariosNotFoundException(FuncionariosNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 

@@ -5,6 +5,8 @@ import me.dio.domain.model.Funcionarios;
 import me.dio.domain.repository.AgenciaRepository;
 import me.dio.domain.repository.FuncionariosRepository;
 import me.dio.dto.FuncionariosDTO;
+import me.dio.exception.AgenciaNotFoundException;
+import me.dio.exception.FuncionariosNotFoundException;
 import me.dio.mapper.FuncionariosMapper;
 import me.dio.service.FuncionariosService;
 import org.springframework.stereotype.Service;
@@ -27,7 +29,7 @@ public class FuncionariosServiceImpl implements FuncionariosService {
     @Override
     public FuncionariosDTO findById(Long id) {
         Funcionarios funcionarios = funcionariosRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Funcionario não encontrado"));
+                .orElseThrow(() -> new FuncionariosNotFoundException("Funcionario não encontrado"));
         return funcionariosMapper.toDTO(funcionarios);
     }
 
@@ -45,7 +47,7 @@ public class FuncionariosServiceImpl implements FuncionariosService {
         }
         Funcionarios funcionarios = funcionariosMapper.toEntity(funcionariosDTO);
         Agencia agencia = agenciaRepository.findById(funcionariosDTO.getAgencia_id())
-                .orElseThrow(() -> new IllegalArgumentException("Agência não encontrada"));
+                .orElseThrow(() -> new AgenciaNotFoundException("Agencia não encontrada"));
         funcionarios.setAgencia(agencia);
 
         Funcionarios createdfuncionarios = funcionariosRepository.save(funcionarios);
