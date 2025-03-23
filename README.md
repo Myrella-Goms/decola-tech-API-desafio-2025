@@ -65,10 +65,9 @@ classDiagram
 9. Exception: Implementação de um manipulador global de exceções (GlobalExceptionHandler) para lidar com exceções comuns, como NoSuchElementException e IllegalArgumentException, e retornar mensagens apropriadas ao cliente.
 
 ## Imagens da aplicação:
- <img src="">
- <img src="">
- <img src="">
- <img src="">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-23%20150055.png">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-23%20150047.png">
+ <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-23%20150115.png">
 
  ## 🚀 Deploy da API pelo Railway
 https://decola-tech-api-desafio-2025-production.up.railway.app/swagger-ui/index.html#/
