@@ -1,7 +1,6 @@
 package me.dio.service;
 
 import me.dio.dto.FuncionariosDTO;
-
 import java.util.List;
 
 public interface FuncionariosService {

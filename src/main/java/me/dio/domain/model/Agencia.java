@@ -10,7 +10,7 @@ public class Agencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_agencia")
     private Long id;
-    @Column(name = "numero-agencia", nullable = false)
+    @Column(name = "numero-agencia", nullable = false, unique = true)
     private String numero;
     @Column(name = "unidade_agencia", nullable = false)
     private String unidade;
@@ -22,9 +22,9 @@ public class Agencia {
     private String estado;
     @Column(name = "status_agencia", nullable = false)
     private String status;
-    @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Cliente> clientes;
-    @OneToMany(mappedBy = "agencia", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Funcionarios> funcionarios;
 
     public Long getId() {

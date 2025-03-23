@@ -3,11 +3,12 @@ package me.dio.dto;
 public class ClienteDTO {
 
     private Long id;
-    private Long agencia_id;
     private String nome;
     private String cpf;
     private String telefone;
     private String email;
+    private String senha;
+    private Long agencia_id;
 
     public Long getId() {
         return id;
@@ -15,14 +16,6 @@ public class ClienteDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAgencia_id() {
-        return agencia_id;
-    }
-
-    public void setAgencia_id(Long agencia_id) {
-        this.agencia_id = agencia_id;
     }
 
     public String getNome() {
@@ -56,5 +49,22 @@ public class ClienteDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Long getAgencia_id() {
+        return agencia_id;
+    }
+
+    public void setAgencia_id(Long agencia_id) {
+        this.agencia_id = agencia_id;
+    }
+
 
 }

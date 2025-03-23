@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-
 @Service
 public class AgenciaServiceImpl implements AgenciaService {
 
@@ -22,10 +21,10 @@ public class AgenciaServiceImpl implements AgenciaService {
     }
 
     @Override
-    public AgenciaDTO findByNumero(String numero)  { //metodo definido na interface
-        Agencia agencia = agenciaRepository.findByNumero(numero) //procurar no repository usando o metodo
-                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada")); //checar se existe de fato uma agencia com número informado
-        return agenciaMapper.toDTO(agencia); // retorno da entidade pra dto
+    public AgenciaDTO findByNumero(String numero)  {
+        Agencia agencia = agenciaRepository.findByNumero(numero)
+                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada"));
+        return agenciaMapper.toDTO(agencia);
     }
 
     @Override
@@ -46,7 +45,7 @@ public class AgenciaServiceImpl implements AgenciaService {
 
     @Override
     public AgenciaDTO updateByNumero(String numero, AgenciaDTO agenciaDTO) {
-        Agencia agencia = agenciaRepository.findByNumero(numero) //O metodo findByNumero é chamado no repositório para buscar uma agência com o número fornecido.
+        Agencia agencia = agenciaRepository.findByNumero(numero)
                 .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada"));
         if (agenciaDTO.getStatus() != null) {
             agencia.setStatus(agenciaDTO.getStatus());
@@ -54,11 +53,8 @@ public class AgenciaServiceImpl implements AgenciaService {
         if (agenciaDTO.getCEP() != null) {
             agencia.setCEP(agenciaDTO.getCEP());
         }
-        if (agenciaDTO.getCidade() != null) {
-            agencia.setCidade(agenciaDTO.getCidade());
-        }
-       Agencia agenciaCreated = agenciaRepository.save(agencia); //salvar a agencia atualizada no banco de dados
-        return agenciaMapper.toDTO(agenciaCreated); //retornar os novos valores como DTO
+       Agencia agenciaCreated = agenciaRepository.save(agencia);
+        return agenciaMapper.toDTO(agenciaCreated);
     }
 
     @Override

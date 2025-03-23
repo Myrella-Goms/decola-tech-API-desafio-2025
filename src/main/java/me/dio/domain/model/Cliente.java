@@ -18,6 +18,8 @@ public class Cliente {
     private String telefone;
     @Column(name = "email_cliente")
     private String email;
+    @Column(name = "senha_cliente")
+    private String senha;
     @ManyToOne
     @JoinColumn(name = "agencia_id", nullable = false)
     private Agencia agencia;
@@ -68,5 +70,13 @@ public class Cliente {
 
     public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

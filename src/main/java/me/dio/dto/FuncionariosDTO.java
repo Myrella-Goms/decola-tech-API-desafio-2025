@@ -5,14 +5,13 @@ import java.util.Date;
 public class FuncionariosDTO {
 
     private Long id;
-    private Long agencia_id;
     private String nome;
     private String cpf;
     private String telefone;
     private Date aniversario;
     private String cargo;
     private String salario;
-
+    private Long agencia_id;
 
     public Long getId() {
         return id;
@@ -20,14 +19,6 @@ public class FuncionariosDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAgencia_id() {
-        return agencia_id;
-    }
-
-    public void setAgencia_id(Long agencia_id) {
-        this.agencia_id = agencia_id;
     }
 
     public String getNome() {
@@ -76,6 +67,14 @@ public class FuncionariosDTO {
 
     public void setSalario(String salario) {
         this.salario = salario;
+    }
+
+    public Long getAgencia_id() {
+        return agencia_id;
+    }
+
+    public void setAgencia_id(Long agencia_id) {
+        this.agencia_id = agencia_id;
     }
 
 }

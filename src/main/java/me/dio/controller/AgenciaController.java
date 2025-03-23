@@ -3,12 +3,10 @@ package me.dio.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import me.dio.dto.AgenciaDTO;
-import me.dio.dto.ClienteDTO;
 import me.dio.service.AgenciaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
 
@@ -24,9 +22,16 @@ public class AgenciaController {
     }
 
     @GetMapping("/{numero}")
-    @Operation(summary = "Encontrar agencia numero")
+    @Operation(summary = "Encontrar agencia pelo numero")
     public ResponseEntity<AgenciaDTO> findByNumero(@PathVariable String numero) {
         var agencia = agenciaService.findByNumero(numero);
+        return ResponseEntity.ok(agencia);
+    }
+
+    @GetMapping
+    @Operation(summary = "Buscar todos as agencias")
+    public ResponseEntity<List<AgenciaDTO>> findAll() {
+        List<AgenciaDTO> agencia = agenciaService.findAll();
         return ResponseEntity.ok(agencia);
     }
 
@@ -36,16 +41,9 @@ public class AgenciaController {
         AgenciaDTO createdAgencia = agenciaService.create(agenciaDTO);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(agenciaDTO.getId())
+                .buildAndExpand(createdAgencia.getId())
                 .toUri();
         return ResponseEntity.created(location).body(createdAgencia);
-    }
-
-    @GetMapping
-    @Operation(summary = "Buscar todos as agencias")
-    public ResponseEntity<List<AgenciaDTO>> findAll() {
-        List<AgenciaDTO> agencia = agenciaService.findAll();
-        return ResponseEntity.ok(agencia);
     }
 
     @PutMapping("/{numero}")

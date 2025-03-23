@@ -1,6 +1,5 @@
 package me.dio.dto;
 
-
 public class AgenciaDTO {
 
     private Long id;
@@ -10,6 +9,7 @@ public class AgenciaDTO {
     private String cidade;
     private String estado;
     private String status;
+
     public Long getId() {
         return id;
     }

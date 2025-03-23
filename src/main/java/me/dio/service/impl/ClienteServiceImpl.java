@@ -44,12 +44,10 @@ public class ClienteServiceImpl implements ClienteService {
         if (clienteRepository.existsByCpf(clienteDTO.getCpf())) {
             throw new IllegalArgumentException("Esse CPF já existe.");
         }
-
         Cliente cliente = clienteMapper.toEntity(clienteDTO);
         Agencia agencia = agenciaRepository.findById(clienteDTO.getAgencia_id())
                 .orElseThrow(() -> new IllegalArgumentException("Agência não encontrada"));
         cliente.setAgencia(agencia);
-
         Cliente createdcliente = clienteRepository.save(cliente);
         return clienteMapper.toDTO(createdcliente);
     }
