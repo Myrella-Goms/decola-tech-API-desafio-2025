@@ -58,7 +58,7 @@ public class FuncionariosServiceImpl implements FuncionariosService {
     public FuncionariosDTO update(Long id, FuncionariosDTO funcionariosDTO) {
 
         Funcionarios funcionarios = funcionariosRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Funcionarios não encontrado"));
+                .orElseThrow(() -> new FuncionariosNotFoundException("Funcionario não encontrado"));
         if (funcionariosDTO.getNome() != null) {
             funcionarios.setNome(funcionariosDTO.getNome());
         }
@@ -78,9 +78,8 @@ public class FuncionariosServiceImpl implements FuncionariosService {
     @Override
     public void delete(Long id) {
         Funcionarios existingFuncionarios = funcionariosRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Funcionario não encontrado."));
+                .orElseThrow(() -> new FuncionariosNotFoundException("Funcionario não encontrado"));
         funcionariosRepository.delete(existingFuncionarios);
     }
-
 
 }

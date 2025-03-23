@@ -58,7 +58,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public ClienteDTO update(Long id, ClienteDTO clienteDTO) {
     Cliente cliente = clienteRepository.findById(id)
-            .orElseThrow(() -> new NoSuchElementException("Cliente não encontrado"));
+            .orElseThrow(() -> new ClienteNotFoundException("Cliente não encontrado"));
 
     if (clienteDTO.getNome() != null) {
         cliente.setNome(clienteDTO.getNome());
@@ -78,7 +78,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public void delete(Long id) {
         Cliente existingCliente = clienteRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Id não existe"));
+                .orElseThrow(() -> new ClienteNotFoundException("Cliente não encontrado"));
         clienteRepository.delete(existingCliente);
     }
 

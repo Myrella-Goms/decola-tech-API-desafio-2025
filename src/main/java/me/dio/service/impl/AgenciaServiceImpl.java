@@ -47,7 +47,7 @@ public class AgenciaServiceImpl implements AgenciaService {
     @Override
     public AgenciaDTO updateByNumero(String numero, AgenciaDTO agenciaDTO) {
         Agencia agencia = agenciaRepository.findByNumero(numero)
-                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada"));
+                .orElseThrow(() -> new AgenciaNotFoundException("Agencia não encontrada"));
         if (agenciaDTO.getStatus() != null) {
             agencia.setStatus(agenciaDTO.getStatus());
         }
@@ -61,7 +61,7 @@ public class AgenciaServiceImpl implements AgenciaService {
     @Override
     public void deleteByNumero(String numero) {
         Agencia existingAgencia = agenciaRepository.findByNumero(numero)
-                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada."));
+                .orElseThrow(() -> new AgenciaNotFoundException("Agencia não encontrada"));
         agenciaRepository.delete(existingAgencia);
     }
 }
