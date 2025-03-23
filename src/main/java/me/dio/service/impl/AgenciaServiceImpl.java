@@ -3,6 +3,7 @@ package me.dio.service.impl;
 import me.dio.domain.model.Agencia;
 import me.dio.domain.repository.AgenciaRepository;
 import me.dio.dto.AgenciaDTO;
+import me.dio.exception.AgenciaNotFoundException;
 import me.dio.mapper.AgenciaMapper;
 import me.dio.service.AgenciaService;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class AgenciaServiceImpl implements AgenciaService {
     @Override
     public AgenciaDTO findByNumero(String numero)  {
         Agencia agencia = agenciaRepository.findByNumero(numero)
-                .orElseThrow(() -> new NoSuchElementException("Agencia não encontrada"));
+                .orElseThrow(() -> new AgenciaNotFoundException("Agencia não encontrada"));
         return agenciaMapper.toDTO(agencia);
     }
 

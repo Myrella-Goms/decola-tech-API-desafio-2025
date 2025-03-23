@@ -12,7 +12,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("User API")
+                        .title("Agencia API")
                         .version("1.0")
                         .description("API para gerenciar agências bancárias"));
     }
