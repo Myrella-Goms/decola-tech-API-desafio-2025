@@ -14,6 +14,6 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("User API")
                         .version("1.0")
-                        .description("API para listar usuários"));
+                        .description("API para gerenciar agências bancárias"));
     }
 }
