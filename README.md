@@ -62,7 +62,7 @@ classDiagram
    
 7. Config: Configuração do swagger open ai;
    
-9. Exception: Implementação de um manipulador global de exceções (GlobalExceptionHandler) para lidar com exceções comuns, como NoSuchElementException e IllegalArgumentException, e retornar mensagens apropriadas ao cliente.
+9. Exception: Criei exceções personalizadas e implementei de um manipulador global de exceções (GlobalExceptionHandler) para lidar com exceções comuns, como IllegalArgumentException, e retornar mensagens apropriadas ao cliente.
 
 ## Imagens da aplicação:
  <img src="https://github.com/Myrella-Goms/decola-tech-API-desafio-2025/blob/master/imagens/Captura%20de%20tela%202025-03-23%20152909.png">
