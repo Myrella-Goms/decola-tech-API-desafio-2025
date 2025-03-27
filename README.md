@@ -29,6 +29,7 @@ classDiagram
         +String cpf
         +String telefone
         +String email
+        +String senha
     }
 
     class Funcionarios {
